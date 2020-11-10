@@ -20,7 +20,7 @@ router.get('/', (req, res) => {
  * @description: Text
  * Validation done with express-validator pacakge
  */
-router.post('/:name/:description', [check('name').notEmpty() , check('description').notEmpty()] , 
+router.post('/:name/:description', [check('name').notEmpty() , check('description').notEmpty(), check('name').isAlpha()], 
 async (req, res, next) => {
   try {
     // validate if the parameters don't exist throw a meaningful error , else perform the request
@@ -34,9 +34,16 @@ async (req, res, next) => {
       res.send(todos);
     }
   } catch(err) {
-      next(err);
+      response.send(err);
     }
 });
+
+/**
+ * Edit data with post
+ * 
+ */
+
+router.post('/edit/:id/:name/:descritpion', check())
 
 /**
  * Delete a Todo param , it deletes the id requested and also doesn't leave an empty space to memory
