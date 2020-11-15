@@ -4,7 +4,6 @@ const { response } = require("express");
 
 module.exports = function (req, res) {
   this.getTodos = (req, res) => {
-    console.log(res, "res");
     res.send(todos);
   };
 
