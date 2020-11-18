@@ -7,6 +7,11 @@ router.get("/", (req, res) => {
   new TodoController().getTodos(req, res);
 });
 
+router.get("/:id", (req, res) => {
+  // get single todo by id
+  new TodoController().getTodos(req, res);
+});
+
 router.post("/create", (req, res) => {
   new TodoController().createTodo(req, res);
 });
